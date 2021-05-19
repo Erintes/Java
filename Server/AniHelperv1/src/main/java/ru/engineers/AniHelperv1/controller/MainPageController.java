@@ -9,7 +9,7 @@ import ru.engineers.AniHelperv1.User;
 @Controller
 public class MainPageController {
 
-    //@GetMapping("/main-page")
+    @GetMapping("/")
     public String mainPage(){
 
         return "main-page";
