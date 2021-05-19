@@ -5,14 +5,15 @@
   <link href="style.css" rel="stylesheet">
   <title>Какое-то название</title>
  </head>
- <body>
+ <body class="background">
 
+  <div class="mask"></div>
   <div class="login">
-   <form class="login-form" action="#" th:action="@{/login}" th:object="${user}" method="post">
-    <p><b>Войти</b></p>
+   <form class="login-form" th:action="@{/login}" th:object="${logUser}" method="post">
+    <p><b>ВХОД</b></p>
     <input type="text" placeholder="LOGIN" name="login" th:field="*{username}">
     <input type="password" placeholder="PASSWORD" name="password" th:field="*{password}">
-    <input type="submit" value="Войти">  
+    <input type="submit" value="ВОЙТИ">
    </form>
   </div> 
 

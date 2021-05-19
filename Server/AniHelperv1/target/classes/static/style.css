@@ -1,0 +1,357 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.animecard {
+  min-height: 254px;
+  margin-left: 260px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid #de6fda;
+  font-family: 'Lucida Sans Unicode';
+}
+
+.titleHref {
+  text-decoration: none;
+}
+
+.animecard img {
+  display: block;
+  float: left;
+  margin: 10px; 
+  width: 150px;
+  height: 234px;
+}
+
+.titleHref span {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  display: inline-block;
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+.description {
+  display: block;
+  margin: 10px;
+  margin-left: 170px;
+}
+
+.rating {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 40pt;
+  font-weight: bold;
+  display: block;
+  float: right;
+  margin: 10px;
+  margin-right: 25px; 
+  text-align: right;
+}
+
+.genres,
+.authors {
+  font-size: 11pt;
+  margin-left: 170px;
+}
+
+.genres span,
+.authors a {
+  margin: 5px;
+  font-size: 10pt;
+  color: #de6fda;
+}
+
+form p {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-size: 18pt;
+}
+
+.registry,
+.login {
+  border: 1px solid #ff5cfa;
+  display: block;
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 40px;
+  font-size: 13pt;
+  font-family: 'Lucida Sans Unicode';
+  color: white;
+  background-color: #262626;
+}
+
+.login input:not([type="submit"]),
+.registry input:not([type="submit"]) {
+  background-color: #454754;
+  color: white;
+  border: 1px solid #de6fda;
+}
+
+.login input:not([type="submit"])::placeholder,
+.registry input:not([type="submit"])::placeholder {
+  color: #de6fda;
+}
+
+.login input[type="submit"],
+.registry input[type="submit"] {
+  border: none;
+  border-top: 1px solid #de6fda;  
+  border-bottom: 1px solid #de6fda; 
+  background-color: #262626;
+  color: white;
+}
+
+.login input[type="submit"]:hover,
+.registry input[type="submit"]:hover {
+  background-color: #de6fda;
+  color: black;
+  font-weight: bold;
+}
+
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.6);
+}
+
+input {
+  margin-bottom: 15px;
+  height: 35px;
+  width: 100%;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 200px;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  display: block;
+  podition: relative;
+  top: 0;
+  left: 0;
+  margin: 0;
+  boxing: border-box;
+  padding: 15px;
+  padding-left: 30px;
+  height: 40px;
+  background-color: #454754;
+}
+
+.logo {
+  font-size: 20pt;
+}
+
+.header span {
+  display: inline-block;
+  font-family: 'Lucida Sans Unicode';
+  color: #de6fda;
+}
+
+.reg,
+.log,
+.exit,
+.userName {
+  text-align: center;
+  padding: 0;
+  margin-top: -15px;
+  width: 150px;
+  float: right;
+  line-height: 70px;
+  height: 70px;
+}
+
+.log {
+  margin-right: 30px;
+}
+
+.header .reg:hover,
+.header .log:hover,
+.header .exit:hover {
+  background-color: #262626;
+  color: #ff5cfa;
+}
+
+.selector {
+  padding-top: 10px;
+  display: block;
+  min-height: 100vh;
+  width: 250px;
+  background-color: #262626;
+  float: left;
+  color: white;
+  font-size: 11pt;
+  font-family: 'Lucida Sans Unicode';
+}
+
+.custom-checkbox>input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  width: 245px;
+}
+
+.custom-checkbox>span {
+  border-bottom: 1px solid #262626;
+  display: block;
+  padding: 10px;
+}
+
+.custom-checkbox>input+span:hover {
+  background-color: #de6fda;
+}
+
+.custom-checkbox>input:checked+span {
+  font-weight: bold;
+  background-color: #ff5cfa;
+  color: #262626;
+} 
+
+.animeName input {
+  display: block;
+  width: 230px;
+  margin: 10px;
+  padding: 0px;
+  font-size: 13pt;
+  font-family: 'Lucida Sans Unicode';
+}
+
+form>span,
+.animeName span {
+  padding: 10px;
+  color:#de6fda;
+}
+
+.selector input[type="reset"] {
+  margin-top: 50px;
+}
+
+.selector input[type="reset"],
+.selector input[type="submit"] {
+  padding: 10px;
+  box-sizing: border-box;
+  height: 50px;
+  border: none;
+  border-top: 1px solid #de6fda;
+  border-bottom: 1px solid #de6fda;
+  display: block;
+  width: 250px;
+  background-color: #262626;
+  color: white;
+  font-size: 13pt;
+  font-family: 'Lucida Sans Unicode';
+}
+
+.selector input[type="reset"]:hover,
+.selector input[type="submit"]:hover {
+  background-color: #de6fda;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+input:active,
+input:focus {
+  outline: none;
+}
+
+.registry input:not([type="submit"]):active,
+.registry input:not([type="submit"]):focus,
+.login input:not([type="submit"]):active,
+.login input:not([type="submit"]):focus {
+    border: 2px solid #de6fda;
+}
+
+.background {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(reg&log_back.jpg);
+  background-position: center top;
+}
+
+.selector a {
+  text-decoration: none;
+}
+
+.addAnimeButton {
+  display: block;
+  height: 50px;
+  color: white;
+  font-size: 13pt;
+  font-family: 'Lucida Sans Unicode';
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+  border-top: 1px solid #de6fda;
+  border-bottom: 1px solid #de6fda;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.addAnimeButton:hover {
+  background-color: #de6fda;
+  color: black;
+  font-weight: bold;
+}
+
+.addAnime form {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.addAnime span {
+  display: block;
+  width: 225px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.back,
+.addAnime form input[type="submit"] {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: none;
+  border-top: 1px solid #de6fda;  
+  border-bottom: 1px solid #de6fda; 
+  background-color: #262626;
+  color: white;
+  cursor: pointer;
+}

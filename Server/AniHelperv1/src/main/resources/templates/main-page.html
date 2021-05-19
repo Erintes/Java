@@ -1,12 +1,95 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta content="text/html; charset=utf-8">
   <link href="style.css" rel="stylesheet">
   <title>Какое-то название</title>
  </head>
  <body>
-  <p th:text="${user.username}" />
-  <p th:text="${user.password}" />
+  <div class="header">
+   <span class="logo">AniHelper</span>
+   <a href="/login"><span class="log">ВОЙТИ</span></a>
+   <a href="/registration"><span class="reg">РЕГИСТРАЦИЯ</span></a>
+  </div>
+
+  <div class="selector">
+   <form action="">
+    <label class="years">
+     <span>ВРЕМЯ ВЫХОДА:</span>
+     <span>ОТ: </span><input type="number" min="1990" max="2020" value="1990">
+     <span>ДО: </span><input type="number" min="1990" max="2020" value="2020">
+    </label>
+
+    <span>ЖАНРЫ:</span>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Action">
+     <span>ACTION</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Adventure">
+     <span>ADVENTURE</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Comedy">
+     <span>COMEDY</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Drama">
+     <span>DRAMA</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Slice of Life">
+     <span>SLICE OF LIFE</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Fantasy">
+     <span>FANTASY</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Magic">
+     <span>MAGIC</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Supernatural">
+     <span>SUPERNATURAL</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Horror">
+     <span>HORROR</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Mystery">
+     <span>MYSTERY</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Psychological">
+     <span>PSYCHOLOGICAL</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Romance">
+     <span>ROMANCE</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Sci-Fi">
+     <span>SCI-FI</span>
+    </label>
+
+    <input type="reset" value="СБРОСИТЬ">
+    <input type="submit" value="НАЙТИ">
+   </form>
+  </div>
  </body>
 </html>
