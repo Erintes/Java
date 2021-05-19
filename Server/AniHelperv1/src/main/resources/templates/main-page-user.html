@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8">
   <link href="style.css" rel="stylesheet">
@@ -8,16 +8,15 @@
  <body>
   <div class="header">
    <span class="logo">AniHelper</span>
-   <a href="/login"><span class="log">ВОЙТИ</span></a>
-   <a href="/registration"><span class="reg">РЕГИСТРАЦИЯ</span></a>
+   <a href="/"><span class="exit">ВЫЙТИ</span></a>
+   <span class="userName" th:text="${user.username}"></span>
   </div>
 
   <div class="selector">
    <form action="">
-    <label class="years">
-     <span>ВРЕМЯ ВЫХОДА:</span>
-     <span>ОТ: </span><input type="number" min="1990" max="2020" value="1990">
-     <span>ДО: </span><input type="number" min="1990" max="2020" value="2020">
+    <label class="animeName">
+     <span>НАЗВАНИЕ АНИМЕ:</span>
+     <input type="text">
     </label>
 
     <span>ЖАНРЫ:</span>
@@ -91,5 +90,6 @@
     <input type="submit" value="НАЙТИ">
    </form>
   </div>
+
  </body>
 </html>
