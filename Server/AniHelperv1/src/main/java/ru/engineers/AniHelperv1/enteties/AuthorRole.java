@@ -6,14 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "animegenre")
-public class Genre {
+@Table(name = "authorroles")
+public class AuthorRole {
     @Id
     private int Id;
 
-    @Column(name="animeid")
-    private int animeid;
+    @Column(name="authorid")
+    private String authorid;
 
-    @Column(name="genre")
-    public String genre;
+    @Column(name="role")
+    public String role;
 }
