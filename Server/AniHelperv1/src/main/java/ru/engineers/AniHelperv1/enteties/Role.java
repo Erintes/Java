@@ -6,14 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "authorroles")
-public class AuthorRole {
+@Table(name = "role")
+public class Role {
     @Id
     private int Id;
 
-    @Column(name="authorid")
-    private String authorid;
-
-    @Column(name="roleid")
-    public String roleid;
+    @Column(name="name")
+    public String role;
 }

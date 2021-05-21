@@ -12,8 +12,15 @@ public class Author {
     @Column(name="name")
     public String name;
 
-    @OneToMany(mappedBy="authorid")
-    public List<AuthorRole> roles;
+//    @OneToMany(mappedBy="authorid")
+//    public List<AuthorRole> roles;
+
+    @ManyToMany
+    @JoinTable(
+            name = "authorroles",
+            joinColumns = @JoinColumn(name = "authorid"),
+            inverseJoinColumns = @JoinColumn(name = "roleid"))
+    public List<Role> roles;
 
 //    @ManyToMany(mappedBy="authors")
 //    public List<Anime> animes;

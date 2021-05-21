@@ -22,7 +22,13 @@ public class Anime {
 
     public String description;
 
-    @OneToMany(mappedBy="animeid")
+//    @OneToMany(mappedBy="animeid")
+//    public List<Genre> genres;
+    @ManyToMany
+    @JoinTable(
+            name = "animegenre",
+            joinColumns = @JoinColumn(name = "genreid"),
+            inverseJoinColumns = @JoinColumn(name = "animeid"))
     public List<Genre> genres;
 
     @ManyToMany
@@ -30,5 +36,5 @@ public class Anime {
             name = "animeauthors",
             joinColumns = @JoinColumn(name = "authorid"),
             inverseJoinColumns = @JoinColumn(name = "animeid"))
-    public Set<Author> authors;
+    public List<Author> authors;
 }
