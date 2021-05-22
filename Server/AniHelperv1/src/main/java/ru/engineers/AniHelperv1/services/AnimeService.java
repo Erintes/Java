@@ -18,7 +18,7 @@ public class AnimeService {
     }
 
     public List<Anime> getByGenre(String genre) {
-        return animeRepo.findAllByGenres(genre);
+        return animeRepo.findAllByGenreName(genre);
     }
 
     public List<Anime> getAll() {

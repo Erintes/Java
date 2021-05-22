@@ -14,23 +14,19 @@ public class AnimeController {
     @Autowired
     private AnimeService animeService;
 
-    @GetMapping("/animes/")
+    @GetMapping("/animes")
     public String listAll(Model model) {
         List<Anime> listAnime = animeService.getAll();
         model.addAttribute("animes", listAnime.subList(0, 50));
-//        Anime anime = listAnime.get(10);
-//        model.addAttribute("item", anime);
-
-
         return "animes";
     }
-//
-//    @GetMapping("/animes/categorical/")
-//    public String getCategoricalData(Model model){
-//        List<Anime> animes = animeService.getByGenre("Военное");
-//        model.addAttribute("animes", animes.subList(0, Math.min(animes.size(), 50)));
-//        return "anime";
-//    }
+
+    @GetMapping("/animes/categorical")
+    public String getCategoricalData(@RequestParam String category, Model model){
+        List<Anime> animes = animeService.getByGenre(category);
+        model.addAttribute("animes", animes.subList(0, Math.min(animes.size(), 50)));
+        return "animes";
+    }
 
     @GetMapping("/anime/{id}")
     public String getAnime(@PathVariable int id, Model model, RedirectAttributes attr){

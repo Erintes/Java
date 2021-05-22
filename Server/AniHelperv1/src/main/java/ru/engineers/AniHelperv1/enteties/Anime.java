@@ -22,8 +22,6 @@ public class Anime {
 
     public String description;
 
-//    @OneToMany(mappedBy="animeid")
-//    public List<Genre> genres;
     @ManyToMany
     @JoinTable(
             name = "animegenre",
