@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3 th:text="${item.title}"></h3>
-<div>
+<div th:if="${item.genres.size() > 0}">
     <h5>genres</h5>
     <span th:each="genre: ${item.genres}">
             <span th:text="${genre.genre}"></span>

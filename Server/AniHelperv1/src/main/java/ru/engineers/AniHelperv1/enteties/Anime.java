@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name="anime")
 public class Anime {
     @Id
-    private int Id;
+    public int Id;
 
     public String title;
 

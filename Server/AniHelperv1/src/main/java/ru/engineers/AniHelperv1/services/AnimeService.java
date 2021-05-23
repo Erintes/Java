@@ -24,4 +24,5 @@ public class AnimeService {
     public List<Anime> getAll() {
         return animeRepo.findAll();
     }
+//    public List<Anime> getAllHighestRating() { return animeRepo}
 }

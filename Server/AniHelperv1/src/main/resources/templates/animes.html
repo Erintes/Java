@@ -3,27 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Animes</title>
+    <style>
+        .cards{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .cards > div {
+            flex: 300px 1;
+        }
+        #menu{
+            position: static;
+            float: left;
+            margin-right: 15px;
+        }
+    </style>
 </head>
 <body>
-<div th:each="item: ${animes}">
-    <h3 th:text="${item.title}"></h3>
-    <div>
-        <h5>genres</h5>
-        <span th:each="genre: ${item.genres}">
+<div id="menu">
+    <div th:each="item: ${genres}">
+        <a th:href="@{/animes/categorical?category={name}(name=${item.genre})}"><div th:text="${item.genre}"></div></a>
+    </div>
+</div>
+<div class="cards" >
+    <div th:each="item: ${animes}">
+        <a th:href="@{/anime/{id}(id=${item.Id})}"><h3 th:text="${item.title}" ></h3></a>
+        <img th:src="${item.imghyper}">
+        <div th:if="${item.genres.size() > 0}">
+            <h5>genres</h5>
+            <span th:each="genre: ${item.genres}">
             <span th:text="${genre.genre}"></span>
         </span>
-    </div>
-    <img th:src="${item.imghyper}">
-    <h6>Rating: <span th:text="${item.ratingvalue}"></span></h6>
-    <div>
-        <h5>authors</h5>
-        <div th:each="author: ${item.authors}">
-            <span th:text="${author.name}"></span> :
-            <span th:each="role: ${author.roles}">
-                <span th:text="${role.role}"></span>
-            </span>
+        </div>
+        <h6>Rating: <span th:text="${item.ratingvalue}"></span></h6>
+<!--        <div>-->
+<!--            <h5>authors</h5>-->
+<!--            <div th:each="author: ${item.authors}">-->
+<!--                <span th:text="${author.name}"></span> :-->
+<!--                <span th:each="role: ${author.roles}">-->
+<!--                <span th:text="${role.role}"></span>-->
+<!--            </span>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div>
+            <h5>Description</h5>
+            <div th:text="${item.description}" class="description"></div>
         </div>
     </div>
 </div>
+
 </body>
 </html>
