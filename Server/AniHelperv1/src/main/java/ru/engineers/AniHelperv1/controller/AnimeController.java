@@ -84,7 +84,7 @@ public class AnimeController {
 
     @PostMapping("/add")
     public String submitForm(@ModelAttribute("anime") AnimeForm anime) {
-        animeService.save(fromForm(anime));
+//        animeService.save(fromForm(anime));
         return "redirect:/animes";
     }
 
@@ -98,9 +98,4 @@ public class AnimeController {
             genres
         );
     }
-
-//    private String savePic(String file){
-//        FileUploadUtil.saveFile('pics', file, );
-//    }
-
 }
