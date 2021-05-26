@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+ <head>
+  <meta content="text/html; charset=utf-8">
+  <link type="text/css" href="/css/style.css" rel="stylesheet" />
+  <title>Какое-то название</title>
+ </head>
+ <body>
+  <div class="header">
+   <span class="logo">AniHelper</span>
+   <div sec:authorize="!isAuthenticated()">
+    <a th:href="@{/login}"><span class="log" >ВОЙТИ</span></a>
+    <a th:href="@{/registration}"><span class="reg" >РЕГИСТРАЦИЯ</span></a>
+   </div>
+   <div sec:authorize="hasRole('USER')">
+    <span class="userName" sec:authentication="name"></span>
+    <a th:href="@{/logout}"><span class="exit">ВЫЙТИ</span></a>
+   </div>
+   <div sec:authorize="hasRole('ADMIN')">
+    <span class="userName">ADMINISTRATOR</span>
+    <a th:href="@{/logout}"><span class="exit">ВЫЙТИ</span></a>
+   </div>
+  </div>
+
+  <div class="selector">
+   <form action="">
+    <label class="animeName">
+     <span>НАЗВАНИЕ АНИМЕ:</span>
+     <input type="text">
+    </label>
+
+    <span>ЖАНРЫ:</span>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Action">
+     <span>ACTION</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Adventure">
+     <span>ADVENTURE</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Comedy">
+     <span>COMEDY</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Drama">
+     <span>DRAMA</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Slice of Life">
+     <span>SLICE OF LIFE</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Fantasy">
+     <span>FANTASY</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Magic">
+     <span>MAGIC</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Supernatural">
+     <span>SUPERNATURAL</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Horror">
+     <span>HORROR</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Mystery">
+     <span>MYSTERY</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Psychological">
+     <span>PSYCHOLOGICAL</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Romance">
+     <span>ROMANCE</span>
+    </label>
+
+    <label class="custom-checkbox">
+     <input type="checkbox" value="Sci-Fi">
+     <span>SCI-FI</span>
+    </label>
+
+    <input type="reset" value="СБРОСИТЬ">
+    <input type="submit" value="НАЙТИ">
+   </form>
+
+   <div sec:authorize="hasRole('ADMIN')">
+    <a th:href="@{/add-anime-page}">
+     <div class="addAnimeButton">
+      ДОБАВИТЬ АНИМЕ
+     </div>
+    </a>
+   </div>
+  </div>
+
+  <div class="animecard">
+    <img src="https://nyaa.shikimori.one/system/mangas/original/25.jpg?1608321727" class="imgHyper">
+    <span class="rating">9</span>
+    <a class="titleHyper" href="https://shikimori.one/mangas/z25-fullmetal-alchemist">
+      <span class="title">Стальной алхимик</span><span>/</span>
+      <span class="titleEn">Fullmetal Alchemist</span>
+    </a>
+    <div class="genres">
+      Жанры: 
+      <span>Экшен</span>
+      <span>Приключения</span>
+      <span>Комедия</span>
+    </div>
+    <div class="authors">
+      Авторы:
+      <a href="https://shikimori.one/people/1874-hiromu-arakawa">Хирому аракава</a>
+    </div>
+    <span class="description">«Чтобы получить что-то, надо отдать нечто равноценное» — основополагающий принцип алхимии, непреложное правило, которого должны придерживаться все алхимики. Сама алхимия — это наука о разрушении чего-то, перерождении в другом качестве, но при этом должны соблюдаться правила. Тем не менее существует способ обойти принцип равноценного обмена — философский камень.
+Гениальный государственный алхимик Эдвард Элрик, прозванный Стальным, и его младший брат Альфонс путешествуют по стране в поисках мистического камня. Несколько лет назад они нарушили главный закон алхимии и жестоко поплатились за это: Ал лишился своего тела, а Эдвард — руки и ноги. Используя алхимию, Эдвард смог привязать душу брата к пустым доспехам, отдав за это свою руку. Нельзя обойти Закон, нельзя получить больше, чем можешь отдать... если у тебя нет философского камня. Дав клятву вернуть утраченные тела, братья отправляются в путешествие.
+Невероятная по напряженности и драматичности история, наполненная светом и тьмой, счастьем и отчаянием, тяжелыми моральными вопросами и невероятным юмором. Экранизированная два раза, эта история не оставит равнодушным никого.</span>
+  </div> 
+
+
+ </body>
+</html>
