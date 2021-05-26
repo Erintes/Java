@@ -9,18 +9,27 @@ public class Author {
     @Id
     private int Id;
 
-    @Column(name="name")
-    public String name;
+    public int getId() {
+        return this.Id;
+    }
 
-//    @OneToMany(mappedBy="authorid")
-//    public List<AuthorRole> roles;
+    @Column(name="name")
+    private String name;
+
+    public String getName() {
+        return this.name;
+    }
 
     @ManyToMany
     @JoinTable(
             name = "authorroles",
             joinColumns = @JoinColumn(name = "authorid"),
             inverseJoinColumns = @JoinColumn(name = "roleid"))
-    public List<Role> roles;
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return this.getRoles();
+    }
 
 //    @ManyToMany(mappedBy="authors")
 //    public List<Anime> animes;

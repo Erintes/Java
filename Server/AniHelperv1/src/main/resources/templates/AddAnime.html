@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new anime</title>
+</head>
+<body>
+    <form th:action="@{/add}" method="post" th:object="${anime}">
+      <label> Title: <input id="title" th:field="*{title}"/></label><br>
+      <label> Main pic: <input type="file" id="avatar" th:field="*{imghyper}" /></label><br>
+      <label> Rating: <input id="rating" th:field="*{ratingvalue}" /></label><br>
+      <label for="description"><h5>Description</h5></label><textarea id="description" th:field="*{description}"></textarea><br>
+      <div >
+          <label for="genres">Choose a genre:</label>
+
+          <select name="genres" id="genres" multiple th:field="*{genres}">
+              <div th:each="item: ${genres}">
+                  <option th:value="${item.Id}" th:text="${item.genre}"></option>
+              </div>
+          </select>
+    <!--      <label><input th:value="${item.Id}" type="checkbox"/><span th:text="${item.genre}"></span><br></label>-->
+      </div>
+      <div>
+          <label for="authors">Choose an author:</label>
+
+          <select name="authors" id="authors" th:field="*{authors}">
+              <div th:each="item: ${authors}">
+                  <option th:value="${item.Id}" th:text="${item.name}"></option>
+              </div>
+          </select>
+      </div>
+        <div>
+            <label for="roles">Choose an role for the author:</label>
+
+            <select name="roles" id="roles" th:field="*{roles}">
+                <div th:each="item: ${roles}">
+                    <option th:value="${item.Id}" th:text="${item.role}"></option>
+                </div>
+            </select>
+        </div>
+        <input type="submit">
+    </form>
+</body>
+</html>

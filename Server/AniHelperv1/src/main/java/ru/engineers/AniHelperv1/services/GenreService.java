@@ -6,6 +6,7 @@ import ru.engineers.AniHelperv1.enteties.Genre;
 import ru.engineers.AniHelperv1.repos.GenreRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -16,4 +17,5 @@ public class GenreService {
     public List<Genre> getAll() {
         return genreRepo.findAll();
     }
+    public Optional<Genre> getById(int id) {return genreRepo.findById(id);}
 }

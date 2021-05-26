@@ -11,6 +11,14 @@ public class Genre {
     @Id
     private int Id;
 
+    public int getId() {
+        return this.Id;
+    }
+
     @Column(name="name")
-    public String genre;
+    private String genre;
+
+    public String getGenre() {
+        return this.genre;
+    }
 }

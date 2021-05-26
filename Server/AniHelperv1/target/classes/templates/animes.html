@@ -22,7 +22,7 @@
 <body>
 <div id="menu">
     <div th:each="item: ${genres}">
-        <a th:href="@{/animes/categorical?category={name}(name=${item.genre})}"><div th:text="${item.genre}"></div></a>
+        <a th:href="@{/animes/categorical?genreId={id}(id=${item.Id})}"><div th:text="${item.genre}"></div></a>
     </div>
 </div>
 <div class="cards" >

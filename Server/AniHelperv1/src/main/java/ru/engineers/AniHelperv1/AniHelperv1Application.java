@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan(basePackages = {"ru.engineers.AniHelperv1.enteties"} )
+@EntityScan(basePackages = {"ru.engineers.AniHelperv1.enteties"})
 @EnableJpaRepositories(basePackages = {"ru.engineers.AniHelperv1.repos"})
 public class AniHelperv1Application {
 

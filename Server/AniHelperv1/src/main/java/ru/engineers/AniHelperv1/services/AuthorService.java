@@ -6,15 +6,16 @@ import org.springframework.stereotype.Service;
 import ru.engineers.AniHelperv1.repos.AuthorRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorService {
     @Autowired
     private AuthorRepository authorRepo;
 
-//    public Anime getById(int id) {
-//        return animeRepo.findById(id);
-//    }
+    public Optional<Author> getById(int id) {
+        return authorRepo.findById(id);
+    }
 
     public List<Author> getAll() {
         return authorRepo.findAll();

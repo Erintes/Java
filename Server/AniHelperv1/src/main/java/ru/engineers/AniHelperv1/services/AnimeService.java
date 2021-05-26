@@ -21,8 +21,15 @@ public class AnimeService {
         return animeRepo.findAllByGenreName(genre);
     }
 
+    public List<Anime> getByGenreId(int genreId) {
+        return animeRepo.findAllByGenreId(genreId);
+    }
+
     public List<Anime> getAll() {
         return animeRepo.findAll();
     }
-//    public List<Anime> getAllHighestRating() { return animeRepo}
+
+    public void save(Anime anime){
+        animeRepo.save(anime);
+    }
 }

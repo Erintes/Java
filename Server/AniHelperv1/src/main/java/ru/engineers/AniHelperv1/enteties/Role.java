@@ -11,6 +11,14 @@ public class Role {
     @Id
     private int Id;
 
+    public int getId(){
+        return this.Id;
+    }
+
     @Column(name="name")
-    public String role;
+    private String role;
+
+    public String getRole(){
+        return this.role;
+    }
 }
