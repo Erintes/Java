@@ -77,7 +77,7 @@ form p {
   border: 1px solid #ff5cfa;
   display: block;
   width: 300px;
-  height: 200px;
+  height: 300px;
   position: fixed;
   left: 0;
   top: 0;
@@ -110,6 +110,35 @@ form p {
   border-bottom: 1px solid #de6fda; 
   background-color: #262626;
   color: white;
+}
+
+.regInLog {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border: none;
+  border-top: 1px solid #de6fda;  
+  border-bottom: 1px solid #de6fda; 
+  background-color: #262626;
+  color: white;
+  font-size: 10pt;
+}
+
+.regInLog:hover {
+  background-color: #de6fda;
+  color: black;
+  font-weight: bold;
+}
+
+.login a {
+  text-decoration: none;
+}
+
+.registration p {
+  font-size: 8pt;
 }
 
 .login input[type="submit"]:hover,
@@ -175,7 +204,7 @@ input[type="submit"] {
 .userName {
   text-align: center;
   padding: 0;
-  margin-top: -15px;
+  margin-top: -57px;
   width: 150px;
   float: right;
   line-height: 70px;
