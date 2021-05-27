@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+ <head>
+  <meta content="text/html; charset=utf-8">
+  <link type="text/css" href="/css/style.css" rel="stylesheet" />
+  <title>Какое-то название</title>
+ </head>
+ <body>
+  <div class="header">
+   <span class="logo">AniHelper</span>
+   <div sec:authorize="!isAuthenticated()">
+    <a th:href="@{/login}"><span class="log" >ВОЙТИ</span></a>
+    <a th:href="@{/registration}"><span class="reg">РЕГИСТРАЦИЯ</span></a>
+   </div>
+   <div sec:authorize="hasRole('USER')">
+    <span class="userName" sec:authentication="name"></span>
+    <a th:href="@{/logout}"><span class="exit">ВЫЙТИ</span></a>
+   </div>
+   <div sec:authorize="hasRole('ADMIN')">
+    <span class="userName">ADMINISTRATOR</span>
+    <a th:href="@{/logout}"><span class="exit">ВЫЙТИ</span></a>
+   </div>
+  </div>
+
+  <div class="main">
+    <div id="menu">
+      <div th:each="item: ${genres}">
+        <a th:href="@{/animes/categorical?genreId={id}(id=${item.Id})}"><div th:text="${item.genre}"></div></a>
+      </div>
+ 
+      <div sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/add}">
+          <div class="addAnimeButton">
+            ДОБАВИТЬ АНИМЕ
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cards" >
+      <div th:each="item: ${animes}" class="animecard">
+        <img th:src="${item.imghyper}" class="imgHyper">
+        <span th:text="${item.ratingvalue}" class="rating"></span>
+        <a th:href="@{/anime/{id}(id=${item.Id})}" class="titleHyper"><h3 th:text="${item.title}" class="title"></h3></a>
+            <div th:if="${item.genres.size() > 0}" class="genres">
+              Жанры: 
+              <span th:each="genre: ${item.genres}">
+                <span th:text="${genre.genre}"></span>
+              </span>
+            </div>
+ 
+            <div>
+              <h5>Description</h5>
+            <div th:text="${item.description}" class="description"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+ </body>
+</html>
