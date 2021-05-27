@@ -8,7 +8,7 @@ import java.util.List;
 public class AnimeForm {
     private String title;
 
-    private String imghyper;
+    private MultipartFile imghyper;
 
     private double ratingvalue;
 
@@ -28,11 +28,11 @@ public class AnimeForm {
         this.title = title;
     }
 
-    public String getImghyper() {
+    public MultipartFile getImghyper() {
         return imghyper;
     }
 
-    public void setImghyper(String imghyper) {
+    public void setImghyper(MultipartFile imghyper) {
         this.imghyper = imghyper;
     }
 

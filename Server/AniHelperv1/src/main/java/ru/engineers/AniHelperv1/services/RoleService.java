@@ -6,6 +6,7 @@ import ru.engineers.AniHelperv1.enteties.Role;
 import ru.engineers.AniHelperv1.repos.RoleRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoleService {
@@ -14,5 +15,9 @@ public class RoleService {
 
     public List<Role> getAll() {
         return roleRepo.findAll();
+    }
+
+    public Optional<Role> getById(int id){
+        return roleRepo.findById(id);
     }
 }

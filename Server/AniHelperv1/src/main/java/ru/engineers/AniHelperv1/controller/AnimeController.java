@@ -2,8 +2,15 @@ package ru.engineers.AniHelperv1.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.module.Configuration;
+import java.nio.file.FileSystem;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,6 +25,8 @@ import ru.engineers.AniHelperv1.services.AnimeService;
 import ru.engineers.AniHelperv1.services.GenreService;
 import ru.engineers.AniHelperv1.services.AuthorService;
 import ru.engineers.AniHelperv1.services.RoleService;
+
+import javax.swing.*;
 
 @Controller
 public class AnimeController {
@@ -67,6 +76,16 @@ public class AnimeController {
         return "anime";
     }
 
+    @GetMapping("/animes/search")
+    public String search(@PathVariable String field, Model model){
+        List<Anime> listAnime = animeService.getAll();
+        List<Genre> genres = genreService.getAll();
+
+        model.addAttribute("animes", listAnime.subList(0, 10));
+        model.addAttribute("genres", genres);
+        return "animes";
+    }
+
     @GetMapping("/anime/add")
     public String addNewAnime(Model model){
         List<Genre> genres = genreService.getAll();
@@ -83,19 +102,33 @@ public class AnimeController {
     }
 
     @PostMapping("/add")
-    public String submitForm(@ModelAttribute("anime") AnimeForm anime) {
-//        animeService.save(fromForm(anime));
-        return "redirect:/animes";
+    public String submitForm(@ModelAttribute("anime") AnimeForm anime, Model model) throws IOException {
+        Anime newAnime = fromForm(anime);
+//        animeService.save(newAnime);
+//        return "redirect:/animes";
+        model.addAttribute("item", newAnime);
+
+        return "anime";
     }
 
-    private Anime fromForm(AnimeForm form) {
+    private Anime fromForm(AnimeForm form) throws IOException {
         List<Genre> genres = new ArrayList<>();
         form.getGenres().forEach(id -> genres.add(genreService.getById(id).get()));
+
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(form.getImghyper().getOriginalFilename()));
+        String uploadDir = "user-photos/" + form.getTitle();
+        FileUploadUtil.saveFile(uploadDir, fileName, form.getImghyper());
+
+        Role role = roleService.getById(form.getRoles()).get();
+        Author author = authorService.getById(form.getAuthors()).get();
+        author.setRoles(List.of(role));
         return new Anime(
-            form.getTitle(),
-            form.getRatingvalue(),
-            form.getDescription(),
-            genres
+                form.getTitle(),
+                String.format("%s/%s/", uploadDir, fileName),
+                form.getRatingvalue(),
+                form.getDescription(),
+                genres,
+                List.of(author)
         );
     }
 }

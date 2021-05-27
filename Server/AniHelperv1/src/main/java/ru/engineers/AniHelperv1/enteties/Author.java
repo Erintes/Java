@@ -28,9 +28,14 @@ public class Author {
     private List<Role> roles;
 
     public List<Role> getRoles() {
-        return this.getRoles();
+        return roles;
     }
 
-//    @ManyToMany(mappedBy="authors")
-//    public List<Anime> animes;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 }

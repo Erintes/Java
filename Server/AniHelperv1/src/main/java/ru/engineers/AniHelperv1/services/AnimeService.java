@@ -29,7 +29,7 @@ public class AnimeService {
         return animeRepo.findAll();
     }
 
-    public void save(Anime anime){
-        animeRepo.save(anime);
+    public Anime save(Anime anime){
+        return animeRepo.saveAndFlush(anime);
     }
 }

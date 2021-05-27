@@ -1,27 +1,32 @@
 package ru.engineers.AniHelperv1.enteties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="anime")
+//@SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", initialValue = 5000, allocationSize = 100)
+@TableGenerator(name = "AnimeGen", table = "anime", initialValue = 10000, allocationSize = 100)
 public class Anime {
-    public Anime(String title, double ratingvalue, String description, List<Genre> genres) {
-        this.Id = 13000 + 1;
+    public Anime(String title, String imghyper, double ratingvalue, String description, List<Genre> genres, List<Author> authors) {
         this.title = title;
+        this.imghyper = imghyper;
         this.titleen = "";
         this.ratingvalue = ratingvalue;
         this.description = description;
         this.genres = genres;
+        this.authors = authors;
     }
 
-    public void setId(int id) {
-        Id = id;
-    }
-
+//    @TableGenerator(name = "AnimeGen", table = "anime", initialValue = 10000, allocationSize = 100)
+//    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int Id;
+
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mySeqGen")
+//    @Column(columnDefinition = "serial")
+    private int id;
 
     private String title;
 
@@ -54,7 +59,7 @@ public class Anime {
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public String getTitle() {
